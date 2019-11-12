@@ -1,4 +1,6 @@
 package com.kz.digitalcontrol.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,11 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
 @Getter
 @Setter
+@Entity
 @Table(name = "main")
-public class Main {
+public class Main extends BaseAuditable {
     @Id
     private int id;
 
@@ -40,25 +42,25 @@ public class Main {
     private String address;
 
     @Column(name = "file_ustav")
-    private String file_ustav;
+    private int file_ustav;
 
     @Column(name = "file_rekvis")
-    private String file_rekvis;
+    private int file_rekvis;
 
     @Column(name = "file_uch_doc")
-    private String file_uch_doc;
+    private int file_uch_doc;
 
     @Column(name = "project_vmest")
-    private String project_vmest;
+    private int project_vmest;
 
     @Column(name = "specialization")
     private String specialization;
 
     @Column(name = "start_time")
-    private String start_time;
+    private int start_time;
 
     @Column(name = "end_time")
-    private String end_time;
+    private int end_time;
 
     @Column(name = "language")
     private String language;
@@ -67,5 +69,9 @@ public class Main {
     private String form;
 
     @Column(name = "groups")
-    private String groups;
+    private int groups;
+
+    @JsonIgnore
+    @Column(name = "state")
+    private int state;
 }
